@@ -55,6 +55,7 @@ namespace ExcelToGraph
         {
             string graphFileExtension = Path.GetExtension(graphFilePath);
             string graphFilePathWithoutExtension = Path.ChangeExtension(graphFilePath, "");
+            graphFilePathWithoutExtension = graphFilePathWithoutExtension.Substring(0, graphFilePathWithoutExtension.Length - 1);
             string unescapedGraphFilePath = graphFilePathWithoutExtension + UNESCAPED_SUFFIX + graphFileExtension;
             string translatedGraphFilePath = graphFilePathWithoutExtension + translatedSuffix + graphFileExtension;
 
