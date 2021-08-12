@@ -66,7 +66,7 @@ public class StringCompIgnoreWhiteSpace : IEqualityComparer<string>
             chx = char.ToLowerInvariant(chx);
             chy = char.ToLowerInvariant(chy);
 
-            if (chx != chy)
+            if (chx != chy && chx != '\n' && chy != '\n' && chx != ' ' && chy != ' ')
                 return false;
         }
 
