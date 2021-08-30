@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: Empty
+  m_EditorClassIdentifier: 
+  entryGUID: c9131fd5-cc7b-40b9-b68c-2c2e4f1511f9
+  nodeDatas:
+  - id: 0
+  - id: 1
+  nodeLinks:
+  - id: 2
+  exposedVariables: []
+  commentBlockDatas: []
+  references:
+    version: 1
+    00000000:
+      type: {class: EntryNode, ns: , asm: Assembly-CSharp}
+      data:
+        guid: c9131fd5-cc7b-40b9-b68c-2c2e4f1511f9
+        position: {x: 100, y: 200}
+    00000001:
+      type: {class: StopNode, ns: , asm: Assembly-CSharp}
+      data:
+        guid: 821dddda-c090-4b9f-a80c-97c9b0458677
+        position: {x: 224, y: 200}
+    00000002:
+      type: {class: NodeLinkData, ns: , asm: Assembly-CSharp}
+      data:
+        sourceNodeGUID: c9131fd5-cc7b-40b9-b68c-2c2e4f1511f9
+        sourcePortName: Output
+        destinationNodeGUID: 821dddda-c090-4b9f-a80c-97c9b0458677

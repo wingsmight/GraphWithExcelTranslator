@@ -17,8 +17,8 @@ namespace ExcelToGraph
     {
         static void Main(string[] args)
         {
-            var translator = new Translator("/Users/user/Downloads/пошаговый сценарий.xlsx", 0, 5, 6, 3);
-            translator.Translate("Graphs/Day00_03.asset", "_en");
+            Parser parser = new Parser("test");
+            parser.Save();
         }
     }
 }

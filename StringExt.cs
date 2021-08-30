@@ -13,4 +13,14 @@ public static class StringExt
         var finishIndex = text.IndexOf(finishSymbols, startIndex + startSymbolsLength);
         return text.Substring(startIndex + startSymbolsLength, finishIndex - startIndex - startSymbolsLength);
     }
+    public static string Multiply(this string text, int factor)
+    {
+        string resultText = "";
+        for (int i = 0; i < factor; i++)
+        {
+            resultText += text;
+        }
+
+        return resultText;
+    }
 }
