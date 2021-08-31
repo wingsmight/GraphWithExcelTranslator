@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
   m_Name: test
   m_EditorClassIdentifier: 
-  entryGUID: 269b5933-151f-4883-8989-e5b2c395bde8
+  entryGUID: b45b47c7-eca8-4349-9690-415f6490e6fd
   nodeDatas:
   - id: 0
+  - id: 1
   nodeLinks:
   exposedVariables: []
   commentBlockDatas: []
@@ -26,3 +27,9 @@ MonoBehaviour:
         guid: 1b4b375a-e982-4645-8274-70940803fe55
         position: {x: 0, y: 0}
         name: VillageFarView
+    00000001:
+      type: {class: CharacterPositionNode, ns: , asm: Assembly-CSharp}
+      data:
+        guid: 1b4b375a-e982-4645-8274-70940803fe55
+        position: {x: 0, y: 0}
+        characterPosition: 0

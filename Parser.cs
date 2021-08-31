@@ -22,6 +22,7 @@ namespace ExcelToGraph
         {
             graph = new Graph(graphName);
             graph.AddNode(new LocationNode(new Vector2(), 0, "VillageFarView"));
+            graph.AddNode(new CharacterPositionNode(new Vector2(), 1, Position.Left));
         }
 
 
