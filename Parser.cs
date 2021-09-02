@@ -21,8 +21,9 @@ namespace ExcelToGraph
         public Parser(string graphName)
         {
             graph = new Graph(graphName);
-            graph.AddNode(new LocationNode(new Vector2(), 0, "VillageFarView"));
-            graph.AddNode(new CharacterPositionNode(new Vector2(), 1, Position.Left));
+            graph.AddNode(new LocationNode(new Vector2(), 1, "VillageFarView"));
+            graph.AddNode(new CharacterPositionNode(new Vector2(), 2, Position.Left));
+            graph.AddNode(new StopNode(new Vector2(), 3));
         }
 
 

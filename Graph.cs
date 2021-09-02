@@ -20,8 +20,6 @@ namespace ExcelToGraph
 
         private string name;
         private List<string> assetLines;
-        private string entryGUID;
-        private int nodeCount;
 
 
         public Graph(string name)
@@ -32,15 +30,17 @@ namespace ExcelToGraph
 
             SetProperty("m_Name", name);
 
-            entryGUID = System.Guid.NewGuid().ToString();
-            SetProperty("entryGUID", entryGUID);
+            var entryNode = new EntryNode();
+            AddNode(entryNode);
+
+            SetProperty("entryGUID", entryNode.GUID);
         }
 
 
         public void AddNode(Node node)
         {
             var nodeLinksIndex = assetLines.FindIndex(x => x.StartsWith(Node.TAB.Multiply(1) + "nodeLinks"));
-            assetLines.Insert(nodeLinksIndex, Node.TAB.Multiply(1) + "- id: " + nodeCount++);
+            assetLines.Insert(nodeLinksIndex, Node.TAB.Multiply(1) + "- id: " + node.ReferenceId);
 
             string[] nodeTexts = node.ToString().Split('\n');
             foreach (var nodeText in nodeTexts)

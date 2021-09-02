@@ -12,24 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
   m_Name: test
   m_EditorClassIdentifier: 
-  entryGUID: b45b47c7-eca8-4349-9690-415f6490e6fd
+  entryGUID: eca8f67f-ba73-41b5-8590-9868b57dd0b0
   nodeDatas:
   - id: 0
   - id: 1
+  - id: 2
+  - id: 3
   nodeLinks:
   exposedVariables: []
   commentBlockDatas: []
   references:
     version: 1
     00000000:
+      type: {class: EntryNode, ns: , asm: Assembly-CSharp}
+      data:
+        guid: eca8f67f-ba73-41b5-8590-9868b57dd0b0
+        position: {x: 100, y: 200}
+    00000001:
       type: {class: LocationNode, ns: , asm: Assembly-CSharp}
       data:
-        guid: 1b4b375a-e982-4645-8274-70940803fe55
+        guid: d55e6829-ea92-4beb-afcb-6fd4b0b0f491
         position: {x: 0, y: 0}
         name: VillageFarView
-    00000001:
+    00000002:
       type: {class: CharacterPositionNode, ns: , asm: Assembly-CSharp}
       data:
-        guid: 1b4b375a-e982-4645-8274-70940803fe55
+        guid: 00c288c3-dfc2-4142-a4d6-f9eb0a482be5
         position: {x: 0, y: 0}
         characterPosition: 0
+    00000003:
+      type: {class: StopNode, ns: , asm: Assembly-CSharp}
+      data:
+        guid: bcc60734-293f-47d7-a955-6c790c884ae9
+        position: {x: 0, y: 0}

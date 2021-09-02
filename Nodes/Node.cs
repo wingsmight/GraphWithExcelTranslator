@@ -28,10 +28,14 @@ namespace ExcelToGraph
             text += TAB.Multiply(3) + "type: " + "{class: " + GetType().Name + ", ns: , asm: Assembly-CSharp}" + '\n';
             text += TAB.Multiply(3) + "data:" + '\n';
 
-            text += TAB.Multiply(4) + "guid: " + "1b4b375a-e982-4645-8274-70940803fe55" + '\n';
-            text += TAB.Multiply(4) + "position: " + "{x: " + position.x + ", y: " + position.y + "}" + '\n';
+            text += TAB.Multiply(4) + "guid: " + guid + '\n';
+            text += TAB.Multiply(4) + "position: " + "{x: " + position.x + ", y: " + position.y + "}";
 
             return text;
         }
+
+
+        public string GUID => guid;
+        public int ReferenceId => referenceId;
     }
 }

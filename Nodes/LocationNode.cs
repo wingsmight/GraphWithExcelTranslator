@@ -15,7 +15,7 @@ namespace ExcelToGraph
 
         public override string ToString()
         {
-            string text = base.ToString();
+            string text = base.ToString() + '\n';
             text += TAB.Multiply(4) + "name: " + locationName;
 
             return text;
