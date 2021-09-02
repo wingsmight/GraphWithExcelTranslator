@@ -21,12 +21,12 @@ namespace ExcelToGraph
         {
             string text = base.ToString() + '\n';
 
-            text += TAB.Multiply(4) + "texts:" + '\n';
+            text += TAB.Multiply(4) + "texts:";
             foreach (var textElement in texts)
             {
-                text += TAB.Multiply(4) + "- \"" + textElement + "\"" + '\n';
+                text += '\n' + TAB.Multiply(4) + "- \"" + textElement + "\"";
             }
-            text += TAB.Multiply(4) + "speakerName: " + speakerName;
+            text += '\n' + TAB.Multiply(4) + "speakerName: " + speakerName;
 
             return text;
         }
