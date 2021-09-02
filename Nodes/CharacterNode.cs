@@ -24,7 +24,7 @@ namespace ExcelToGraph
             text += TAB.Multiply(5) + "position: " + (int)property.position + '\n';
             text += TAB.Multiply(5) + "emotion: " + (int)property.emotion + '\n';
 
-            text += TAB.Multiply(4) + "direction: " + (int)direction + '\n';
+            text += TAB.Multiply(4) + "direction: " + (int)direction;
 
             return text;
         }
