@@ -23,7 +23,7 @@ namespace ExcelToGraph
         public override string ToString()
         {
             string text = "";
-            text += TAB.Multiply(2) + referenceId.ToString("D8") + ":" + '\n';
+            text += TAB.Multiply(2) + referenceId.ToString("X8") + ":" + '\n';
 
             text += TAB.Multiply(3) + "type: " + "{class: " + GetType().Name + ", ns: , asm: Assembly-CSharp}" + '\n';
             text += TAB.Multiply(3) + "data:" + '\n';
