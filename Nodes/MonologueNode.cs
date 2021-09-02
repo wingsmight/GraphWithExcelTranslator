@@ -20,11 +20,11 @@ namespace ExcelToGraph
         public override string ToString()
         {
             string text = base.ToString() + '\n';
-            text += TAB.Multiply(4) + "texts:" + '\n';
 
+            text += TAB.Multiply(4) + "texts:" + '\n';
             foreach (var textElement in texts)
             {
-                text += TAB.Multiply(5) + "- \"" + textElement + "\"" + '\n';
+                text += TAB.Multiply(4) + "- \"" + textElement + "\"" + '\n';
             }
             text += TAB.Multiply(4) + "speakerName: " + speakerName;
 
