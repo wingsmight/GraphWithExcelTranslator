@@ -40,6 +40,17 @@ namespace ExcelToGraph
                 assetLines.Add(nodeText);
             }
         }
+        public void AddNodeLink(NodeLinkData nodeLink)
+        {
+            var nodeLinksIndex = assetLines.FindIndex(x => x.StartsWith(Node.TAB.Multiply(1) + "nodeLinks"));
+            assetLines.Insert(nodeLinksIndex + 1, Node.TAB.Multiply(1) + "- id: " + nodeLink.ReferenceId);
+
+            string[] nodeLinkTexts = nodeLink.ToString().Split('\n');
+            foreach (var nodeLinkText in nodeLinkTexts)
+            {
+                assetLines.Add(nodeLinkText);
+            }
+        }
         public override string ToString()
         {
             string text = "";

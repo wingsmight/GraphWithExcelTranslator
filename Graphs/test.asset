@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
   m_Name: test
   m_EditorClassIdentifier: 
-  entryGUID: eca8f67f-ba73-41b5-8590-9868b57dd0b0
+  entryGUID: 52b50571-b2fe-4e85-89ab-6427d1956e9a
   nodeDatas:
   - id: 0
   - id: 1
   - id: 2
   - id: 3
+  - id: 4
+  - id: 5
+  - id: 6
+  - id: 7
   nodeLinks:
+  - id: 8
   exposedVariables: []
   commentBlockDatas: []
   references:
@@ -26,22 +31,67 @@ MonoBehaviour:
     00000000:
       type: {class: EntryNode, ns: , asm: Assembly-CSharp}
       data:
-        guid: eca8f67f-ba73-41b5-8590-9868b57dd0b0
+        guid: 52b50571-b2fe-4e85-89ab-6427d1956e9a
         position: {x: 100, y: 200}
     00000001:
       type: {class: LocationNode, ns: , asm: Assembly-CSharp}
       data:
-        guid: d55e6829-ea92-4beb-afcb-6fd4b0b0f491
+        guid: 8ce15936-4958-4b21-a2bc-cbb149023534
         position: {x: 0, y: 0}
         name: VillageFarView
     00000002:
       type: {class: CharacterPositionNode, ns: , asm: Assembly-CSharp}
       data:
-        guid: 00c288c3-dfc2-4142-a4d6-f9eb0a482be5
+        guid: 201e9f8e-e9b5-4efa-85d8-c7844fe9c6b4
         position: {x: 0, y: 0}
         characterPosition: 0
     00000003:
       type: {class: StopNode, ns: , asm: Assembly-CSharp}
       data:
-        guid: bcc60734-293f-47d7-a955-6c790c884ae9
+        guid: 0f0bf1c5-61e9-41de-9679-9a6f66b7cbce
         position: {x: 0, y: 0}
+    00000004:
+      type: {class: CharacterNode, ns: , asm: Assembly-CSharp}
+      data:
+        guid: 534c269d-21b7-4fae-8fe0-149d836882c0
+        position: {x: 0, y: 0}
+        character:
+          name: James
+          position: 0
+          emotion: 0
+        direction: 0
+    00000005:
+      type: {class: MonologueNode, ns: , asm: Assembly-CSharp}
+      data:
+        guid: 7227181b-4cf5-426b-89e1-e2a04fdc43fe
+        position: {x: 0, y: 0}
+        texts:
+        - "test0"
+        - "test1"
+        speakerName: James
+    00000006:
+      type: {class: SplitMessageNode, ns: , asm: Assembly-CSharp}
+      data:
+        guid: d28fe778-5f54-464c-af67-c2febd302cf0
+        position: {x: 0, y: 0}
+        text:
+        - "test0"
+        - "test1"
+        - "test2"
+    00000007:
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        guid: 23ac6160-78f9-4a0d-aec0-37fd844ef0d4
+        position: {x: 0, y: 0}
+        dialogueText: 
+        speakerName: 
+        responses:
+        - id: 311
+        - id: 312
+        - id: 313
+    00000008:
+      type: {class: NodeLinkData, ns: , asm: Assembly-CSharp}
+      data:
+        sourceNodeGUID: ebb6ba43-f754-4e41-a64a-ca727d3853d5
+        sourcePortName: Output
+        destinationNodeGUID: 0f9a7611-ae00-4eec-a753-f47b6a16cefd
