@@ -13,16 +13,17 @@ namespace ExcelToGraph
         protected string sourcePortName = DEFAULT_SOURCE_PORT_NAME;
 
 
-        public NodeLinkData(int referenceId, string sourceNodeGUID, string destinationNodeGUID)
+        public NodeLinkData(int referenceId, string sourceNodeGUID, string destinationNodeGUID, string sourcePortName = DEFAULT_SOURCE_PORT_NAME)
         {
             this.referenceId = referenceId;
             this.sourceNodeGUID = sourceNodeGUID;
             this.destinationNodeGUID = destinationNodeGUID;
-        }
-        public NodeLinkData(int referenceId, string sourceNodeGUID, string destinationNodeGUID, string sourcePortName)
-            : this(referenceId, sourceNodeGUID, destinationNodeGUID)
-        {
             this.sourcePortName = sourcePortName;
+        }
+        public NodeLinkData(int referenceId, Node sourceNode, Node destinationNode, string sourcePortName = DEFAULT_SOURCE_PORT_NAME)
+            : this(referenceId, sourceNode.GUID, destinationNode.GUID)
+        {
+
         }
 
 
@@ -42,6 +43,6 @@ namespace ExcelToGraph
         }
 
 
-        public int ReferenceId => referenceId;
+        public int ReferenceId { get => referenceId; set => referenceId = value; }
     }
 }

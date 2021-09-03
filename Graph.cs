@@ -8,10 +8,13 @@ namespace ExcelToGraph
     class Graph
     {
         private const string EMPTY_GRAPH_PATH = "Graphs/Empty.asset";
+        private static readonly Vector2 NODE_OFFSET = new Vector2(550, 0);
 
 
         private string name;
         private List<string> assetLines;
+        private Node lastNode;
+        private int elementsCount = 0;
 
 
         public Graph(string name)
@@ -23,6 +26,7 @@ namespace ExcelToGraph
             SetProperty("m_Name", name);
 
             var entryNode = new EntryNode();
+            lastNode = entryNode;
             AddNode(entryNode);
 
             SetProperty("entryGUID", entryNode.GUID);
@@ -31,6 +35,11 @@ namespace ExcelToGraph
 
         public void AddNode(Node node)
         {
+            node.ReferenceId = elementsCount++;
+            node.Position = lastNode.Position + NODE_OFFSET;
+
+            AddNodeLink(new NodeLinkData(0, lastNode, node));
+
             var nodeLinksIndex = assetLines.FindIndex(x => x.StartsWith(Node.TAB.Multiply(1) + "nodeLinks"));
             assetLines.Insert(nodeLinksIndex, Node.TAB.Multiply(1) + "- id: " + node.ReferenceId);
 
@@ -39,11 +48,15 @@ namespace ExcelToGraph
             {
                 assetLines.Add(nodeText);
             }
+
+            lastNode = node;
         }
         public void AddNodeLink(NodeLinkData nodeLink)
         {
-            var nodeLinksIndex = assetLines.FindIndex(x => x.StartsWith(Node.TAB.Multiply(1) + "nodeLinks"));
-            assetLines.Insert(nodeLinksIndex + 1, Node.TAB.Multiply(1) + "- id: " + nodeLink.ReferenceId);
+            nodeLink.ReferenceId = elementsCount++;
+
+            var exposedVariablesIndex = assetLines.FindIndex(x => x.StartsWith(Node.TAB.Multiply(1) + "exposedVariables"));
+            assetLines.Insert(exposedVariablesIndex, Node.TAB.Multiply(1) + "- id: " + nodeLink.ReferenceId);
 
             string[] nodeLinkTexts = nodeLink.ToString().Split('\n');
             foreach (var nodeLinkText in nodeLinkTexts)

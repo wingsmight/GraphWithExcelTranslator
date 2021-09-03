@@ -36,6 +36,7 @@ namespace ExcelToGraph
 
 
         public string GUID => guid;
-        public int ReferenceId => referenceId;
+        public int ReferenceId { get => referenceId; set => referenceId = value; }
+        public Vector2 Position { get => position; set => position = value; }
     }
 }
