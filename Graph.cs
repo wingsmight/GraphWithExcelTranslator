@@ -26,8 +26,8 @@ namespace ExcelToGraph
             SetProperty("m_Name", name);
 
             var entryNode = new EntryNode();
-            lastNode = entryNode;
             AddNode(entryNode);
+            lastNode = entryNode;
 
             SetProperty("entryGUID", entryNode.GUID);
         }
@@ -36,9 +36,12 @@ namespace ExcelToGraph
         public void AddNode(Node node)
         {
             node.ReferenceId = elementsCount++;
-            node.Position = lastNode.Position + NODE_OFFSET;
 
-            AddNodeLink(new NodeLinkData(0, lastNode, node));
+            if (lastNode != null)
+            {
+                node.Position = lastNode.Position + NODE_OFFSET;
+                AddNodeLink(new NodeLinkData(0, lastNode, node));
+            }
 
             var nodeLinksIndex = assetLines.FindIndex(x => x.StartsWith(Node.TAB.Multiply(1) + "nodeLinks"));
             assetLines.Insert(nodeLinksIndex, Node.TAB.Multiply(1) + "- id: " + node.ReferenceId);
