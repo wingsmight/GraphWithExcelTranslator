@@ -13,7 +13,7 @@ namespace ExcelToGraph
         public MonologueNode(Vector2 position, int referenceId, List<string> texts, string speakerName) : base(position, referenceId)
         {
             this.texts = texts;
-            this.speakerName = speakerName;
+            this.speakerName = CharacterProperty.TranslateName(speakerName);
         }
 
 

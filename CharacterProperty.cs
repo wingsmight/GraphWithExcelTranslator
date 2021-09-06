@@ -5,7 +5,24 @@ namespace ExcelToGraph
 {
     public class CharacterProperty
     {
-        private readonly Dictionary<string, Emotion> emotionStringEnum = new Dictionary<string, Emotion>()
+        public static readonly Dictionary<string, string> translatedNames = new Dictionary<string, string>()
+        {
+            {"Автор", "Author"},
+            {"", ""},
+            {" ", " "},
+            {"Джеймс", "James"},
+            {"Артэн", "Arten"},
+            {"Зари", "Zari"},
+            {"Дандаро", "Dandaro"},
+            {"Флой", "Floy"},
+            {"Грэг", "Greg"},
+            {"Миам", "Miam"},
+            {"Рион", "Rion"},
+            {"Сира", "Sira"},
+            {"чёрный мужской силуэт", "Man"},
+            {"чёрный женский силуэт", "Grandma"},
+        };
+        private static readonly Dictionary<string, Emotion> emotionStringEnum = new Dictionary<string, Emotion>()
         {
             {"стандарт", Emotion.Usual},
             {"радость", Emotion.Happy},
@@ -28,12 +45,16 @@ namespace ExcelToGraph
         }
         public CharacterProperty(string name, string positionName, string emotionName)
         {
-            this.name = name;
+            this.name = TranslateName(name);
             this.position = ConvertToPosition(positionName);
             this.emotion = ConvertToEmotion(emotionName);
         }
 
 
+        public static string TranslateName(string ruName)
+        {
+            return translatedNames[ruName];
+        }
         private Position ConvertToPosition(string positionName)
         {
             switch (positionName)
@@ -58,6 +79,9 @@ namespace ExcelToGraph
         }
         private Emotion ConvertToEmotion(string emotionName)
         {
+            if (string.IsNullOrEmpty(emotionName))
+                return Emotion.Usual;
+
             emotionName = emotionName.ToLower();
 
             foreach (var emotion in emotionStringEnum)
@@ -68,7 +92,7 @@ namespace ExcelToGraph
                 }
             }
 
-            return Emotion.Usual;//throw new Exception("Cannot convert emotion from string to enum");
+            throw new Exception("Cannot convert emotion from string to enum");
         }
     }
 
