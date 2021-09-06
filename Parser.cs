@@ -50,7 +50,7 @@ namespace ExcelToGraph
                         CharacterNode characterNode = new CharacterNode(Vector2.Zero, 0, appearingCharacter);
                         graph.AddNode(characterNode);
                     }
-                    else if (eventCell.StartsWith("Загрузка фона"))
+                    else if (eventCell.StartsWith("Загрузка"))
                     {
                         var locationName = row[1].ToString();
                         LocationNode locationNode = new LocationNode(Vector2.Zero, 0, locationName);
@@ -59,6 +59,11 @@ namespace ExcelToGraph
 
                     // messages
                     string speakerName = row[4].ToString();
+                    if (string.IsNullOrEmpty(speakerName))
+                    {
+                        continue;
+                    }
+
                     List<string> messages = new List<string>()
                     {
                         row[5].ToString()
@@ -66,6 +71,7 @@ namespace ExcelToGraph
 
                     for (; rowIndex + 1 < dataTable.Rows.Count; rowIndex++)
                     {
+                        bool isNextRowMessage = true;
                         var nextRow = dataTable.Rows[rowIndex + 1];
 
                         // Check
@@ -77,16 +83,31 @@ namespace ExcelToGraph
                         {
                             if (!string.IsNullOrEmpty(nextRow[columnIndex].ToString()))
                             {
+                                isNextRowMessage = false;
                                 break;
                             }
                         }
 
                         // Insert to message list
-                        messages.Add(nextRow[5].ToString());
+                        if (isNextRowMessage)
+                        {
+                            messages.Add(nextRow[5].ToString());
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
 
-                    MonologueNode monologueNode = new MonologueNode(Vector2.Zero, 0, messages, speakerName);
-                    graph.AddNode(monologueNode);
+                    try
+                    {
+                        MonologueNode monologueNode = new MonologueNode(Vector2.Zero, 0, messages, speakerName);
+                        graph.AddNode(monologueNode);
+                    }
+                    catch
+                    {
+                        Console.WriteLine();
+                    }
                 }
             }
         }
