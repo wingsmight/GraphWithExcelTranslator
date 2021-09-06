@@ -8,8 +8,6 @@ namespace ExcelToGraph
         public static readonly Dictionary<string, string> translatedNames = new Dictionary<string, string>()
         {
             {"Автор", "Author"},
-            {"", ""},
-            {" ", " "},
             {"Джеймс", "James"},
             {"Артэн", "Arten"},
             {"Зари", "Zari"},
@@ -73,7 +71,7 @@ namespace ExcelToGraph
                     }
                 default:
                     {
-                        throw new Exception("Cannot convert postion from string to enum");
+                        throw new Exception($"Cannot convert postion \"{positionName}\" from string to enum");
                     }
             }
         }
@@ -92,7 +90,7 @@ namespace ExcelToGraph
                 }
             }
 
-            throw new Exception("Cannot convert emotion from string to enum");
+            throw new Exception($"Cannot convert emotion \"{emotionName}\"from string to enum");
         }
     }
 
